@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqfrch1f17axb"
+path="res://.godot/imported/item_pickup.wav-0820f98dfae867799662a035511d79da.sample"
+
+[deps]
+
+source_file="res://assets/MG Topdown/item_pickup.wav"
+dest_files=["res://.godot/imported/item_pickup.wav-0820f98dfae867799662a035511d79da.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

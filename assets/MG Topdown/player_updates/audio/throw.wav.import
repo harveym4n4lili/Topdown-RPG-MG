@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://blae44b100kec"
+path="res://.godot/imported/throw.wav-7726133166047706e329f5c6761acf7b.sample"
+
+[deps]
+
+source_file="res://assets/MG Topdown/player_updates/audio/throw.wav"
+dest_files=["res://.godot/imported/throw.wav-7726133166047706e329f5c6761acf7b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
