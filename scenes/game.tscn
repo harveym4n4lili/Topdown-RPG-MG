@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://cp2ktul4hb1yc"]
+[gd_scene load_steps=3 format=3 uid="uid://cp2ktul4hb1yc"]
+
+[ext_resource type="Texture2D" uid="uid://r5cx2fc0ipri" path="res://assets/MG Topdown/player_updates/sprites/player_sprite.png" id="1_uwrxv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yqjtg"]
 
 [node name="Game" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(240, 135)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_yqjtg")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+texture = ExtResource("1_uwrxv")
+hframes = 16
+vframes = 8
