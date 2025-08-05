@@ -276,6 +276,4 @@ libraries = {
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_gl8cc")
-animation = &"walk_up"
-frame = 4
-frame_progress = 0.485606
+animation = &"walk_down"

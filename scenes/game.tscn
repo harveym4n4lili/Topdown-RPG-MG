@@ -6,3 +6,7 @@
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(240, 135)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
