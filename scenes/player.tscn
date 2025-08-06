@@ -1,17 +1,20 @@
-[gd_scene load_steps=38 format=3 uid="uid://bg55opf6u1jnj"]
+[gd_scene load_steps=41 format=3 uid="uid://bg55opf6u1jnj"]
 
 [ext_resource type="Texture2D" uid="uid://r5cx2fc0ipri" path="res://assets/MG Topdown/player_updates/sprites/player_sprite.png" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://dxj36q1qgy78n" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://dxj36q1qgy78n" path="res://scripts/Player/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://jjo525y5ceur" path="res://scripts/Player/player_state_machine.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://0xvn18td255c" path="res://scripts/Player/state_idle.gd" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://dl6apu63afytp" path="res://scripts/Player/state_walk.gd" id="5_qlg0r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yqjtg"]
+
+[sub_resource type="Animation" id="Animation_qhqgy"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_g2els"]
 resource_name = "idle_down"
 length = 0.4
 loop_mode = 1
-
-[sub_resource type="Animation" id="Animation_qhqgy"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qhqgy"]
 _data = {
@@ -277,3 +280,13 @@ libraries = {
 position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_gl8cc")
 animation = &"walk_down"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_qhqgy")
+metadata/_custom_type_script = "uid://jjo525y5ceur"
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_dqkch")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("5_qlg0r")
