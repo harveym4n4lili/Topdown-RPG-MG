@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dxcrp528wqt53"
+path="res://.godot/imported/huwh.wav-4084b54d35460587f226c4ee2f3e4293.sample"
+
+[deps]
+
+source_file="res://assets/MG Topdown/player_updates/audio/huwh.wav"
+dest_files=["res://.godot/imported/huwh.wav-4084b54d35460587f226c4ee2f3e4293.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://levu2x7plul8"
+path="res://.godot/imported/boomerang.wav-12ae9c7f67cb7bf364cf84aa5eadafb7.sample"
+
+[deps]
+
+source_file="res://assets/MG Topdown/boomerang.wav"
+dest_files=["res://.godot/imported/boomerang.wav-12ae9c7f67cb7bf364cf84aa5eadafb7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

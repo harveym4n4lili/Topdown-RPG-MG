@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dc075wvclo2iy"
+path="res://.godot/imported/boss_beam.wav-d4e12a788181a9c072b889f8db70b2fb.sample"
+
+[deps]
+
+source_file="res://assets/MG Topdown/boss_beam.wav"
+dest_files=["res://.godot/imported/boss_beam.wav-d4e12a788181a9c072b889f8db70b2fb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c2it0xle5rasu"
+path="res://.godot/imported/hit_01.wav-22af2be0b04e5a16f9920a371b2fcd40.sample"
+
+[deps]
+
+source_file="res://assets/MG Topdown/hit_01.wav"
+dest_files=["res://.godot/imported/hit_01.wav-22af2be0b04e5a16f9920a371b2fcd40.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

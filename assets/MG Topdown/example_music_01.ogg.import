@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bl0r1o8a0s0mh"
+path="res://.godot/imported/example_music_01.ogg-1a783fe6bae0d30b5f6ee547cda1620a.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/MG Topdown/example_music_01.ogg"
+dest_files=["res://.godot/imported/example_music_01.ogg-1a783fe6bae0d30b5f6ee547cda1620a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
