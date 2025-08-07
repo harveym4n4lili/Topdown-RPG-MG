@@ -4,8 +4,8 @@ var cardinal_direction : Vector2 = Vector2.DOWN # Facing direction
 var direction : Vector2 = Vector2.ZERO # Intended movement
 var move_speed : float = 100.0
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: PlayerStateMachine = $StateMachine
 
 # Called when node enters tree for the first time.
@@ -48,14 +48,14 @@ func SetDirection() -> bool:
 		return false 
 	
 	# flip sprite if facing left
-	animated_sprite_2d.scale.x = -1 if new_dir == Vector2.LEFT else 1
+	sprite_2d.scale.x = -1 if new_dir == Vector2.LEFT else 1
 	# Update cardinal direction
 	cardinal_direction = new_dir
 	return true
 	
 ## Method for finding the right animation to play
 func UpdateAnimation( state : String ) -> void:
-	animated_sprite_2d.play( state + "_" + AnimDirection())
+	animation_player.play( state + "_" + AnimDirection())
 	pass
 	
 ## Method for finding right direction string using cardinal direction

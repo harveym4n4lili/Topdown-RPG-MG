@@ -23,6 +23,7 @@ Global="*res://scripts/Global.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/resizable=false
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="viewport"
@@ -30,7 +31,7 @@ window/stretch/mode="viewport"
 [importer_defaults]
 
 animation_library={
-&"animation/fps": 60.0
+&"animation/fps": 30.0
 }
 
 [input]
