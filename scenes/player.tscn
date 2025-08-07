@@ -280,9 +280,10 @@ libraries = {
 }
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.858791, 0.993818, 0.929791, 1)
 position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_gl8cc")
-animation = &"walk_down"
+animation = &"idle_down"
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_qhqgy")
@@ -293,5 +294,3 @@ script = ExtResource("4_dqkch")
 
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource("5_qlg0r")
-
-[node name="Camera2D" type="Camera2D" parent="."]

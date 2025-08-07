@@ -13,8 +13,9 @@ func _ready() -> void:
 	state_machine.Initialize(self)
 	pass
 
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+
+	
+func _physics_process(delta: float) -> void:
 	# position update ---
 	# referring to input maps
 	#direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -23,10 +24,13 @@ func _process(delta: float) -> void:
 		Input.get_axis("left", "right"),
 		Input.get_axis("up", "down")
 	).normalized() # .normalize fixes increased speed in diagonal movement
-	pass
+	  # Calculate velocity vector scaled by move_speed
+	var velocity = direction * move_speed
 	
-func _physics_process(delta: float) -> void:
-	move_and_slide()
+	# Move with subpixel precision (move_and_slide works with Vector2 floats)
+	# move_and_slide applies collision, returns actual velocity 
+	velocity = move_and_slide()
+	pass
 	
 ## Method to update cardinal direction variable
 func SetDirection() -> bool:
