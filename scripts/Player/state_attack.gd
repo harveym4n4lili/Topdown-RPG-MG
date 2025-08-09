@@ -2,17 +2,26 @@ class_name State_Attack extends State
 
 var attacking : bool = false
 
+@export var attack_sound : AudioStream
+
+
 @onready var attack: State_Attack = $"../Attack"
 @onready var idle: State_Idle = $"../Idle"
 @onready var walk: State_Walk = $"../Walk"
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var attack_animation_player: AnimationPlayer = $"../../Sprite2D/AttackEffect/AnimationPlayer"
+@onready var audio_stream_player: AudioStreamPlayer = $"../../Audio/AudioStreamPlayer"
 
 ## What happens when player ENTERS this state?
 func Enter() -> void:
 	player.UpdateAnimation("attack")
 	attack_animation_player.play("attack_"+player.AnimDirection())
 	animation_player.animation_finished.connect( EndAttack ) # signals when animation is finished, calls EndAttack
+
+	audio_stream_player.stream = attack_sound
+	audio_stream_player.pitch_scale = randf_range(0.8, 1.4)
+	audio_stream_player.play()
+	
 	attacking = true
 	pass
 
