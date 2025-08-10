@@ -1,19 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://d1uebb3qoroha"]
 
 [ext_resource type="PackedScene" uid="uid://bg55opf6u1jnj" path="res://scenes/player.tscn" id="1_tv47m"]
-[ext_resource type="PackedScene" uid="uid://vyu5hmgtfs1r" path="res://scenes/Terrain.tscn" id="2_7qphv"]
-[ext_resource type="Script" uid="uid://bv7apm66103sk" path="res://scripts/camera_2d.gd" id="2_g3t10"]
-[ext_resource type="PackedScene" uid="uid://cieu7rkaq5udi" path="res://scenes/tree_2.tscn" id="3_g3t10"]
-[ext_resource type="PackedScene" uid="uid://piynaxi6pmsl" path="res://scenes/tree_1.tscn" id="4_3hlmh"]
+[ext_resource type="PackedScene" uid="uid://vyu5hmgtfs1r" path="res://scenes/world/Terrain.tscn" id="2_7qphv"]
+[ext_resource type="PackedScene" uid="uid://cieu7rkaq5udi" path="res://scenes/world/foliage/tree_2.tscn" id="3_g3t10"]
+[ext_resource type="PackedScene" uid="uid://piynaxi6pmsl" path="res://scenes/world/foliage/tree_1.tscn" id="4_3hlmh"]
+[ext_resource type="AudioStream" uid="uid://chov5i150bsi3" path="res://assets/MG Topdown/example_music_02.ogg" id="5_7qphv"]
 
 [node name="Forest Island" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_tv47m")]
 position = Vector2(435, 315)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-480, -220)
-script = ExtResource("2_g3t10")
 
 [node name="Terrain" parent="." instance=ExtResource("2_7qphv")]
 layer_0/name = "Dark grass"
@@ -219,3 +215,10 @@ position = Vector2(25, 646)
 
 [node name="Tree_16" parent="Foliage/Trees" instance=ExtResource("4_3hlmh")]
 position = Vector2(25, 646)
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_7qphv")
+autoplay = true
+bus = &"Music"
