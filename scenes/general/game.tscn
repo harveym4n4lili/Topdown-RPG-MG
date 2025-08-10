@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cp2ktul4hb1yc"]
 
-[ext_resource type="Script" uid="uid://bdhkqgv1gtpcw" path="res://scripts/game.gd" id="1_whik6"]
+[ext_resource type="Script" uid="uid://bdhkqgv1gtpcw" path="res://scripts/general/game.gd" id="1_whik6"]
 [ext_resource type="Shader" uid="uid://xvfo3eait1a7" path="res://shaders/camera.gdshader" id="2_1tfsq"]
-[ext_resource type="PackedScene" uid="uid://d1uebb3qoroha" path="res://scenes/forest_island.tscn" id="3_2ew87"]
+[ext_resource type="PackedScene" uid="uid://d1uebb3qoroha" path="res://scenes/world/forest_island.tscn" id="3_2ew87"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g3t10"]
 shader = ExtResource("2_1tfsq")

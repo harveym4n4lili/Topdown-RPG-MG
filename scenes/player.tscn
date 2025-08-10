@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dxhqynnt2p88b" path="res://assets/MG Topdown/Shadow.png" id="6_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://ik2knkqd4fdx" path="res://assets/MG Topdown/catch.wav" id="8_d2wvv"]
 [ext_resource type="AudioStream" uid="uid://b7mojfm8hwk5f" path="res://assets/MG Topdown/player_updates/SwordSwoosh.wav" id="9_y4r1p"]
-[ext_resource type="Script" uid="uid://bv7apm66103sk" path="res://scripts/camera_2d.gd" id="10_y4r1p"]
+[ext_resource type="Script" uid="uid://bv7apm66103sk" path="res://scripts/general/camera_2d.gd" id="10_y4r1p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yqjtg"]
 

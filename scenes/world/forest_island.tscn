@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://d1uebb3qoroha"]
 
 [ext_resource type="PackedScene" uid="uid://bg55opf6u1jnj" path="res://scenes/player.tscn" id="1_tv47m"]
-[ext_resource type="PackedScene" uid="uid://vyu5hmgtfs1r" path="res://scenes/Terrain.tscn" id="2_7qphv"]
-[ext_resource type="PackedScene" uid="uid://cieu7rkaq5udi" path="res://scenes/tree_2.tscn" id="3_g3t10"]
-[ext_resource type="PackedScene" uid="uid://piynaxi6pmsl" path="res://scenes/tree_1.tscn" id="4_3hlmh"]
+[ext_resource type="PackedScene" uid="uid://vyu5hmgtfs1r" path="res://scenes/world/Terrain.tscn" id="2_7qphv"]
+[ext_resource type="PackedScene" uid="uid://cieu7rkaq5udi" path="res://scenes/world/foliage/tree_2.tscn" id="3_g3t10"]
+[ext_resource type="PackedScene" uid="uid://piynaxi6pmsl" path="res://scenes/world/foliage/tree_1.tscn" id="4_3hlmh"]
 [ext_resource type="AudioStream" uid="uid://chov5i150bsi3" path="res://assets/MG Topdown/example_music_02.ogg" id="5_7qphv"]
 
 [node name="Forest Island" type="Node2D"]
