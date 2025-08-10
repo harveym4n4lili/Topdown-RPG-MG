@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://cp2ktul4hb1yc"]
 
-[ext_resource type="Shader" uid="uid://xvfo3eait1a7" path="res://shaders/camera.gdshader" id="1_iywne"]
-[ext_resource type="Script" uid="uid://bdhkqgv1gtpcw" path="res://scripts/game.gd" id="1_p57ef"]
-[ext_resource type="PackedScene" uid="uid://d1uebb3qoroha" path="res://scenes/forest_island.tscn" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://bdhkqgv1gtpcw" path="res://scripts/game.gd" id="1_whik6"]
+[ext_resource type="Shader" uid="uid://xvfo3eait1a7" path="res://shaders/camera.gdshader" id="2_1tfsq"]
+[ext_resource type="PackedScene" uid="uid://d1uebb3qoroha" path="res://scenes/forest_island.tscn" id="3_2ew87"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g3t10"]
-shader = ExtResource("1_iywne")
+shader = ExtResource("2_1tfsq")
 shader_parameter/cam_offset = Vector2(0, 0)
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_p57ef")
+script = ExtResource("1_whik6")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
@@ -27,4 +27,4 @@ canvas_item_default_texture_filter = 0
 size = Vector2i(962, 542)
 render_target_update_mode = 4
 
-[node name="Forest Island" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_lnu2h")]
+[node name="Forest Island" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_2ew87")]
