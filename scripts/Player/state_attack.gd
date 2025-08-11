@@ -11,23 +11,31 @@ var attacking : bool = false
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var attack_animation_player: AnimationPlayer = $"../../Sprite2D/AttackEffect/AnimationPlayer"
 @onready var audio_stream_player: AudioStreamPlayer = $"../../Audio/AudioStreamPlayer"
+@onready var hurt_box: HurtBox = $"../../Interactions/HurtBox"
 
 ## What happens when player ENTERS this state?
 func Enter() -> void:
+	# HANDLE ANIMATION
 	player.UpdateAnimation("attack")
 	attack_animation_player.play("attack_"+player.AnimDirection())
 	animation_player.animation_finished.connect( EndAttack ) # signals when animation is finished, calls EndAttack
 
+	# PLAY SOUND
 	audio_stream_player.stream = attack_sound
 	audio_stream_player.pitch_scale = randf_range(0.8, 1.4)
 	audio_stream_player.play()
 	
 	attacking = true
+	
+	# HURTBOX ON
+	await get_tree().create_timer( 0.075 ).timeout # time delay
+	hurt_box.monitoring = true
 	pass
 
 ## What happens when player EXITS this state?
 func Exit() -> void:
 	animation_player.animation_finished.disconnect( EndAttack ) # disconnect signal so we can reconnect again
+	hurt_box.monitoring = false # HURTBOX OFF
 	attacking = false
 	pass
 
@@ -35,7 +43,7 @@ func Exit() -> void:
 func Process(_delta: float) -> State:
 	player.velocity -= player.velocity * decelerate_speed * _delta # decelerate player when attacking (slide effect)
 	
-	if attacking == false:
+	if attacking == false: # handle transition ot other nodes
 		if player.direction == Vector2.ZERO:
 			return idle
 		else:

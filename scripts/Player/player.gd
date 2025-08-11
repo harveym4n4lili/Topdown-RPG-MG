@@ -8,6 +8,8 @@ var move_speed : float = 100.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: PlayerStateMachine = $StateMachine
 
+signal DirectionChanged(new_direction: Vector2) # used for interaction nodes
+
 # Called when node enters tree for the first time.
 func _ready() -> void:
 	state_machine.Initialize(self)
@@ -51,6 +53,7 @@ func SetDirection() -> bool:
 	sprite_2d.scale.x = -1 if new_dir == Vector2.LEFT else 1
 	# Update cardinal direction
 	cardinal_direction = new_dir
+	DirectionChanged.emit(new_dir)
 	return true
 	
 ## Method for finding the right animation to play

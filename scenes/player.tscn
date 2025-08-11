@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bg55opf6u1jnj"]
+[gd_scene load_steps=32 format=3 uid="uid://bg55opf6u1jnj"]
 
 [ext_resource type="Texture2D" uid="uid://r5cx2fc0ipri" path="res://assets/MG Topdown/player_updates/sprites/player_sprite.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dxj36q1qgy78n" path="res://scripts/player/player.gd" id="1_g2els"]
@@ -11,8 +11,11 @@
 [ext_resource type="AudioStream" uid="uid://ik2knkqd4fdx" path="res://assets/MG Topdown/catch.wav" id="8_d2wvv"]
 [ext_resource type="AudioStream" uid="uid://b7mojfm8hwk5f" path="res://assets/MG Topdown/player_updates/SwordSwoosh.wav" id="9_y4r1p"]
 [ext_resource type="Script" uid="uid://bv7apm66103sk" path="res://scripts/general/camera_2d.gd" id="10_y4r1p"]
+[ext_resource type="PackedScene" uid="uid://16dd523a5p7q" path="res://scenes/general/hurt_box.tscn" id="12_3v2ag"]
+[ext_resource type="Script" uid="uid://cxaalnh3ctlhl" path="res://scripts/player/PlayerInteractionsHost.gd" id="12_jej6c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yqjtg"]
+radius = 9.0
 
 [sub_resource type="Animation" id="Animation_f1ej7"]
 length = 0.001
@@ -360,11 +363,17 @@ _data = {
 &"walk_up": SubResource("Animation_smehm")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jej6c"]
+radius = 20.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 16
 motion_mode = 1
 wall_min_slide_angle = 0.174533
 script = ExtResource("1_g2els")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("10_y4r1p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -384,6 +393,7 @@ texture = ExtResource("6_tuyoq")
 
 [node name="AttackEffect" type="Sprite2D" parent="Sprite2D"]
 visible = false
+y_sort_enabled = true
 position = Vector2(6, -6)
 texture = ExtResource("4_smehm")
 hframes = 12
@@ -417,5 +427,14 @@ attack_sound = ExtResource("9_y4r1p")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("10_y4r1p")
+[node name="Interactions" type="Node2D" parent="."]
+script = ExtResource("12_jej6c")
+
+[node name="HurtBox" parent="Interactions" instance=ExtResource("12_3v2ag")]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HurtBox"]
+position = Vector2(0, 19)
+rotation = -0.0304587
+shape = SubResource("CircleShape2D_jej6c")
+debug_color = Color(0.7, 0, 0, 0.419608)
