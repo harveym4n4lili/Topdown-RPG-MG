@@ -9,9 +9,8 @@ var attacking : bool = false
 @onready var idle: State_Idle = $"../Idle"
 @onready var walk: State_Walk = $"../Walk"
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
-@onready var attack_animation_player: AnimationPlayer = $"../../Sprite2D/AttackEffect/AnimationPlayer"
+@onready var attack_animation_player: AnimationPlayer = $"../../Sprite2D/Attack/AttackAnimation"
 @onready var audio_stream_player: AudioStreamPlayer = $"../../Audio/AudioStreamPlayer"
-@onready var hurt_box: HurtBox = $"../../Interactions/HurtBox"
 
 ## What happens when player ENTERS this state?
 func Enter() -> void:
@@ -26,16 +25,11 @@ func Enter() -> void:
 	audio_stream_player.play()
 	
 	attacking = true
-	
-	# HURTBOX ON
-	await get_tree().create_timer( 0.075 ).timeout # time delay
-	hurt_box.monitoring = true
 	pass
 
 ## What happens when player EXITS this state?
 func Exit() -> void:
-	animation_player.animation_finished.disconnect( EndAttack ) # disconnect signal so we can reconnect again
-	hurt_box.monitoring = false # HURTBOX OFF
+	animation_player.animation_finished.disconnect( EndAttack ) # disconnect
 	attacking = false
 	pass
 
