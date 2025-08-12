@@ -4,6 +4,8 @@ var cardinal_direction : Vector2 = Vector2.DOWN # Facing direction
 var direction : Vector2 = Vector2.ZERO # Intended movement
 var move_speed : float = 100.0
 
+const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: PlayerStateMachine = $StateMachine
@@ -38,13 +40,16 @@ func _physics_process(delta: float) -> void:
 func SetDirection() -> bool:
 	if direction == Vector2.ZERO: # No movement input, don't set direction
 		return false
-
-	var new_dir : Vector2 = cardinal_direction
 	
-	if direction.y == 0: # LEFT or RIGHT
-		new_dir = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
-	elif direction.x == 0: # UP or DOWN
-		new_dir = Vector2.UP if direction.y < 0 else Vector2.DOWN
+	var new_dir : Vector2
+	
+	# Prioritize horizontal movement for diagonal inputs
+	if abs(direction.x) >= abs(direction.y):
+		# More horizontal than vertical movement (or equal - prioritize side)
+		new_dir = Vector2.RIGHT if direction.x > 0 else Vector2.LEFT
+	else:
+		# More vertical than horizontal movement
+		new_dir = Vector2.DOWN if direction.y > 0 else Vector2.UP
 	
 	if new_dir == cardinal_direction: # Direction did not change, don't set direction
 		return false 
