@@ -629,6 +629,7 @@ vframes = 8
 
 [node name="Shadow" type="Sprite2D" parent="Sprite2D"]
 modulate = Color(0, 0, 0, 0.482353)
+z_index = -1
 position = Vector2(0, 21)
 texture = ExtResource("6_tuyoq")
 
