@@ -1,10 +1,11 @@
 class_name Player extends CharacterBody2D
 
+const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 var cardinal_direction : Vector2 = Vector2.DOWN # Facing direction
 var direction : Vector2 = Vector2.ZERO # Intended movement
-var move_speed : float = 100.0
 
-const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
+@export_category("Player Attributes")
+@export var move_speed : float = 100.0
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
