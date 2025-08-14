@@ -14,10 +14,9 @@ signal DirectionChanged(new_direction: Vector2) # used for interaction nodes
 
 # Called when node enters tree for the first time.
 func _ready() -> void:
+	GlobalPlayerManager.player = self # set global player to this instance
 	state_machine.Initialize(self)
 	pass
-
-
 	
 func _physics_process(delta: float) -> void:
 	# position update ---

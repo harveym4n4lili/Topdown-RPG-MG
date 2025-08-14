@@ -21,7 +21,8 @@ buses/default_bus_layout="uid://dsdfbr2gj2bpv"
 
 [autoload]
 
-Global="*res://scripts/Global.gd"
+Global="*res://scripts/globals/global_viewport.gd"
+GlobalPlayerManager="*res://scripts/globals/global_player_manager.gd"
 
 [display]
 

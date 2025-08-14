@@ -1639,7 +1639,6 @@ sources/10 = SubResource("TileSetAtlasSource_36psj")
 sources/14 = SubResource("TileSetAtlasSource_qabky")
 
 [node name="Terrain" type="TileMap"]
-modulate = Color(0.37426, 0.797544, 0.636933, 1)
 z_index = -1
 tile_set = SubResource("TileSet_q867y")
 format = 2
