@@ -1,19 +1,17 @@
-class_name  HurtBox extends Area2D
+class_name HurtBox extends Area2D
 
 @export var damage : int = 1 # damage to cause to hitbox
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	area_entered.connect(AreaEntered)
-	pass # Replace with function body.
-
+	if not area_entered.is_connected(_on_area_entered):
+		area_entered.connect(_on_area_entered)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 	
 	
-func AreaEntered(a:Area2D) -> void:
-	if a is HitBox:
-		a.TakeDamage( damage ) # when Hurtbox is in hitbox, cause damage to the hitbox
-	pass
+func _on_area_entered(area: Area2D) -> void:
+	if area is HitBox:
+		(area as HitBox).TakeDamage(damage)  # Ensure safe cast
