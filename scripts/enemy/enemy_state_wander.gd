@@ -39,8 +39,6 @@ func Enter() -> void:
 
 ## What happens when enemy EXITS this state?
 func Exit() -> void:
-	if audio_stream_player_2d.pitch_scale != 0:
-		audio_stream_player_2d.pitch_scale = 0 # reset pitch
 	pass
 
 ## Called every frame during _process while this state is active.

@@ -14,4 +14,4 @@ func _process(delta: float) -> void:
 	
 func _on_area_entered(area: Area2D) -> void:
 	if area is HitBox:
-		(area as HitBox).TakeDamage(damage)  # Ensure safe cast
+		area.TakeDamage(self) # pass the hurtbox itself to the hitbox entered
