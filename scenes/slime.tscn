@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://wrms2tc0ty0b"]
+[gd_scene load_steps=34 format=3 uid="uid://wrms2tc0ty0b"]
 
 [ext_resource type="Texture2D" uid="uid://cpkhdjms41em2" path="res://assets/MG Topdown/Slime.png" id="1_p2gj0"]
 [ext_resource type="Script" uid="uid://7us6ugmy6do3" path="res://scripts/enemy/enemy.gd" id="1_pjw23"]
+[ext_resource type="PackedScene" uid="uid://16dd523a5p7q" path="res://scenes/general/hurt_box.tscn" id="2_g40cl"]
 [ext_resource type="Texture2D" uid="uid://dxhqynnt2p88b" path="res://assets/MG Topdown/Shadow.png" id="2_n6pvg"]
 [ext_resource type="Script" uid="uid://bkqtafi7b5lse" path="res://scripts/enemy/enemy_state_machine.gd" id="3_n6pvg"]
 [ext_resource type="Texture2D" uid="uid://br0815rc7wl1l" path="res://assets/MG Topdown/DestroySmoke.png" id="3_v5wyi"]
@@ -567,6 +568,15 @@ script = ExtResource("1_pjw23")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_p2gj0")
+
+[node name="HurtBox" parent="." instance=ExtResource("2_g40cl")]
+collision_layer = 2
+collision_mask = 258
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_gstla")
+debug_color = Color(0.7, 0, 0, 0.419608)
 
 [node name="HitBox" parent="." instance=ExtResource("9_vnioy")]
 
