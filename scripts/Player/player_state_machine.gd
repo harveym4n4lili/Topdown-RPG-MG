@@ -31,12 +31,19 @@ func Initialize(_player : Player) -> void:
 	for c in get_children():
 		if c is State:
 			states.append(c)
+			
+	if states.size() == 0:
+		return
 
+	states[0].player = _player
+	states[0].state_machine = self
+	
+	for state in states:
+		state.Init()
+	
 	# Set the first state as active and assign the player reference.
-	if states.size() > 0:
-		states[0].player = _player
-		ChangeState(states[0])
-		process_mode = Node.PROCESS_MODE_INHERIT  # Enable processing for this node.
+	ChangeState(states[0])
+	process_mode = Node.PROCESS_MODE_INHERIT  # Enable processing for this node.
 
 # Handles changing the current state to a new state.
 # Calls Exit on the old state and Enter on the new.

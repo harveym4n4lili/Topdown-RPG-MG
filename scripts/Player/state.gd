@@ -3,6 +3,12 @@ class_name State extends Node
 ## Reference to the Player node that this state controls.
 ## Declared static so it's shared across all states, assuming one player instance.
 static var player: Player
+static var state_machine : PlayerStateMachine
+
+## Called when the node enters the scene tree initially.
+## What happens when the enemy initializes this state?
+func Init() -> void:
+	pass
 
 ## Called when the node enters the scene tree initially.
 ## Use this for any setup your base state might require.

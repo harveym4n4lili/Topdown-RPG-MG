@@ -4,19 +4,28 @@ const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 var cardinal_direction : Vector2 = Vector2.DOWN # Facing direction
 var direction : Vector2 = Vector2.ZERO # Intended movement
 
+var invulnerable : bool = false
+var hp : int = 6
+var max_hp : int = 6
+
 @export_category("Player Attributes")
 @export var move_speed : float = 100.0
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
 @onready var state_machine: PlayerStateMachine = $StateMachine
+@onready var hit_box: HitBox = $HitBox
 
-signal DirectionChanged(new_direction: Vector2) # used for interaction nodes
+signal DirectionChanged(new_direction: Vector2) # pass movement direction
+signal PlayerDamaged(hurt_box: HurtBox)
 
 # Called when node enters tree for the first time.
 func _ready() -> void:
 	GlobalPlayerManager.player = self # set global player to this instance
 	state_machine.Initialize(self)
+	hit_box.Damaged.connect(_take_damage)
+	update_hp(99)
 	pass
 	
 func _physics_process(delta: float) -> void:
@@ -74,3 +83,27 @@ func AnimDirection() -> String:
 		return "up"
 	else:
 		return "side"
+
+func _take_damage(hurt_box : HurtBox) -> void:
+	if invulnerable == true:
+		return
+	update_hp(-hurt_box.damage)
+	if hp > 0:
+		PlayerDamaged.emit(hurt_box)
+	else:
+		update_hp(99) # godmode for dev testing
+	pass
+
+func update_hp(delta : int) -> void:
+	hp = clampi(hp + delta, 0, max_hp) # better than hp += delta
+	pass
+
+func make_invulnerable(_duration : float) -> void:
+	invulnerable = true
+	hit_box.monitoring = false
+	
+	await get_tree().create_timer(_duration).timeout # start a time for passed duration
+	
+	invulnerable = false
+	hit_box.monitoring = true
+	pass 
