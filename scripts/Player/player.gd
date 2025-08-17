@@ -5,11 +5,12 @@ var cardinal_direction : Vector2 = Vector2.DOWN # Facing direction
 var direction : Vector2 = Vector2.ZERO # Intended movement
 
 var invulnerable : bool = false
-var hp : int = 6
-var max_hp : int = 6
+
 
 @export_category("Player Attributes")
 @export var move_speed : float = 100.0
+@export var hp : int = 6
+@export var max_hp : int = 6
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -25,7 +26,7 @@ func _ready() -> void:
 	GlobalPlayerManager.player = self # set global player to this instance
 	state_machine.Initialize(self)
 	hit_box.Damaged.connect(_take_damage)
-	update_hp(99)
+	update_hp(99) # change to 99 for godmode
 	pass
 	
 func _physics_process(delta: float) -> void:
@@ -91,11 +92,14 @@ func _take_damage(hurt_box : HurtBox) -> void:
 	if hp > 0:
 		PlayerDamaged.emit(hurt_box)
 	else:
+		# when dead
+		PlayerDamaged.emit(hurt_box)
 		update_hp(99) # godmode for dev testing
 	pass
 
 func update_hp(delta : int) -> void:
 	hp = clampi(hp + delta, 0, max_hp) # better than hp += delta
+	PlayerHud.UpdateHp(hp, max_hp)
 	pass
 
 func make_invulnerable(_duration : float) -> void:

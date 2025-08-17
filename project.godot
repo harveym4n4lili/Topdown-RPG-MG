@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://dsdfbr2gj2bpv"
 
 Global="*res://scripts/globals/global_viewport.gd"
 GlobalPlayerManager="*res://scripts/globals/global_player_manager.gd"
+PlayerHud="*res://scenes/gui/player_hud/player_hud.tscn"
 
 [display]
 

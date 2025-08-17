@@ -560,7 +560,7 @@ _data = {
 }
 
 [node name="Slime" type="CharacterBody2D"]
-collision_layer = 256
+collision_layer = 0
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_pjw23")
@@ -571,7 +571,6 @@ shape = SubResource("CapsuleShape2D_p2gj0")
 
 [node name="HurtBox" parent="." instance=ExtResource("2_g40cl")]
 collision_layer = 2
-collision_mask = 258
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -12)
